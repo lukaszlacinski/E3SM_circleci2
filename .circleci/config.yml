@@ -11,3 +11,5 @@ jobs:
       - run:
           command: singularity exec --hostname singularity e3sm.sif .travis/run.sh
           no_output_timeout: 60m
+      - run:
+          command: singularity exec --hostname singularity e3sm.sif .travis/check_output.sh
