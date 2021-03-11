@@ -13,3 +13,4 @@ jobs:
           no_output_timeout: 60m
       - run:
           command: singularity exec --hostname singularity e3sm.sif .circleci/check_output.sh
+          when: on_fail
