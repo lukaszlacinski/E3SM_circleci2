@@ -54,6 +54,8 @@ function print_runlog
 #command_yellow "./case.build -v"
 #rc=$?
 #if [ $rc -ne 0 ]; then
+    echo "\$ ls -la ${log_dir}/bld/"
+    ls -la ${log_dir}/bld/
     print_bldlog "e3sm"
     print_bldlog "csm_share"
     print_bldlog "pio"
