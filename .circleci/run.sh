@@ -62,10 +62,10 @@ if [ $rc -ne 0 ]; then
     print_bldlog "mct"
     print_bldlog "gptl"
 fi
-exit $rc
+#exit $rc
 
 # Unfortunately, case.submit always return 0, even if it fails.
 # To find out if it succeeded, we check if the run log has been gzipped.
-#command_yellow "./case.submit"
-#print_runlog "e3sm"
+command_yellow "./case.submit"
+print_runlog "e3sm"
 exit $?
