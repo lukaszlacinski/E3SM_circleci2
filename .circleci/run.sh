@@ -46,10 +46,12 @@ function print_runlog
     fi
 }
 
+
 command_yellow_rc "mkdir -p $HOME/projects/e3sm/cesm-inputdata"
 command_yellow_rc "cd cime/scripts"
 command_yellow_rc "./create_newcase --case $case --compset $compset --res $res"
 command_yellow_rc "cd $case"
+command_yellow_rc "./xmlchange GMAKE_J=2"
 command_yellow_rc "./case.setup"
 command_yellow "./case.build -v"
 rc=$?
@@ -59,11 +61,11 @@ if [ $rc -ne 0 ]; then
     print_bldlog "pio"
     print_bldlog "mct"
     print_bldlog "gptl"
-    exit $rc
 fi
+exit $rc
 
 # Unfortunately, case.submit always return 0, even if it fails.
 # To find out if it succeeded, we check if the run log has been gzipped.
-command_yellow "./case.submit"
-print_runlog "e3sm"
+#command_yellow "./case.submit"
+#print_runlog "e3sm"
 exit $?
